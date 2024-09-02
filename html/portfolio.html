@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="..\img\favico_small.png" type="image/x-icon">
+    <link rel="stylesheet" href="..\css\flc_site.css">
+    <title>LensCraft Studio - Portfolio</title>
+</head>
+
+<body>
+    <div class="background">
+        <header>
+            <a href="index.html" class="logo1"><img src="..\img\lcs_logo_w.png" alt="LensCraft Studio Logo"></a>
+            <ul class="navbar">
+                <li><a href="services.html">SERVICES</a></li>
+                <li><a href="portfolio.html">PORTFOLIO</a></li>
+                <li><a href="book.html">BOOK NOW</a></li>
+                <li><a href="#about-us">ABOUT US</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="#blog">BLOG</a></li>
+            </ul>
+        </header>
+
+        <main class="main">
+            <div class="portfolio-container">
+                <h1>Portfolio
+                    <div class="spacer-portfolio"></div> <!-- Spacer -->
+                </h1>                
+
+                <!-- Wedding Photography -->
+                <div class="portfolio-item">
+                    <h3>Wedding Photography</h3>
+                    <div class="spacer-portfolio-item"></div> <!-- Spacer -->
+                    <div class="portfolio-grid">
+                        <img src="..\img\wedding1.jpeg" alt="Wedding Photo 1" class="portfolio-thumb">
+                        <img src="..\img\wedding2.jpeg" alt="Wedding Photo 2" class="portfolio-thumb">
+                        <img src="..\img\wedding3.jpeg" alt="Wedding Photo 3" class="portfolio-thumb">
+                        <img src="..\img\wedding4.jpeg" alt="Wedding Photo 4" class="portfolio-thumb">
+                    </div>
+                </div>
+
+                <!-- Portraits -->
+                <div class="portfolio-item">
+                    <h3>Portraits</h3>
+                    <div class="spacer-portfolio-item"></div> <!-- Spacer -->
+                    <div class="portfolio-grid">
+                        <img src="..\img\portrait1.jpeg" alt="Portrait 1" class="portfolio-thumb">
+                        <img src="..\img\portrait2.jpeg" alt="Portrait 2" class="portfolio-thumb">
+                        <img src="..\img\portrait3.jpeg" alt="Portrait 3" class="portfolio-thumb">
+                        <img src="..\img\portrait4.jpeg" alt="Portrait 4" class="portfolio-thumb">
+                    </div>
+                </div>
+
+                <!-- Commercial Shoots -->
+                <div class="portfolio-item">
+                    <h3>Commercial Shoots</h3>
+                    <div class="spacer-portfolio-item"></div> <!-- Spacer -->
+                    <div class="portfolio-grid">
+                        <img src="..\img\commercial1.jpeg" alt="Commercial Shoot 1" class="portfolio-thumb">
+                        <img src="..\img\commercial2.jpg" alt="Commercial Shoot 2" class="portfolio-thumb">
+                        <img src="..\img\commercial3.jpg" alt="Commercial Shoot 3" class="portfolio-thumb">
+                        <img src="..\img\commercial4.jpg" alt="Commercial Shoot 4" class="portfolio-thumb">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="footer-container">
+        <footer class="footer">
+            <a href="services.html">SERVICES</a>
+            <a href="portfolio.html">PORTFOLIO</a>
+            <a href="book.html">BOOK NOW</a>
+            <a href="#about-us">ABOUT US</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="#blog">BLOG</a>
+            <div class="footer-content">
+                <p>Join us and <b>spark your creativity</b> with fresh ideas<br>&reg; Copyright LensCraft Studio</p>
+                <div class="social">
+                    <a href="www.facebook.com"><span class="jam--facebook-square" alt="Facebook"></span></a>
+                    <a href="www.instagram.com"><span class="icon-park-outline--instagram"></span></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Lightbox/Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+    
+    <script src="portfolio.js"></script> <!-- JavaScript for lightbox functionality -->
+</body>
+<script>
+ // Select the lightbox elements
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.close');
+
+// Function to open the lightbox with the clicked image
+function openLightbox(event) {
+    event.stopPropagation(); // Prevent the event from bubbling up
+    lightbox.style.display = 'flex';
+    lightboxImg.src = event.target.src; // Set the lightbox image source to the clicked thumbnail's source
+}
+
+// Function to close the lightbox
+function closeLightbox() {
+    lightbox.style.display = 'none';
+}
+
+// Add click event listeners to all portfolio thumbnails
+document.querySelectorAll('.portfolio-thumb').forEach(thumb => {
+    thumb.addEventListener('click', openLightbox);
+});
+
+// Add click event listener to the close button
+closeBtn.addEventListener('click', closeLightbox);
+
+// Close the lightbox if the user clicks outside the image
+lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) {
+        closeLightbox();
+    }
+});
+</script>
+</html>
